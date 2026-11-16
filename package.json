@@ -1,0 +1,61 @@
+{
+  "name": "@finopsbricks/fob-documents",
+  "version": "0.1.0",
+  "description": "documents.finopsbricks.com client + fob-documents CLI (2-in-1). Import the client in workers and agents, or use the CLI.",
+  "type": "module",
+  "main": "src/index.js",
+  "exports": {
+    ".": "./src/index.js",
+    "./package.json": "./package.json"
+  },
+  "bin": {
+    "fob-documents": "./bin/cli.js"
+  },
+  "files": [
+    "bin",
+    "src/**/*.js",
+    "README.md",
+    "CHANGELOG.md",
+    "LICENSE",
+    "NOTICE"
+  ],
+  "scripts": {
+    "start": "node bin/cli.js",
+    "test": "node --experimental-vm-modules node_modules/jest/bin/jest.js",
+    "typecheck": "tsc -p jsconfig.json",
+    "prepublishOnly": "git diff --quiet HEAD && test -z \"$(git status --porcelain)\" || (echo 'fob-documents: commit or stash first; refusing to publish a dirty tree' && exit 1)"
+  },
+  "keywords": [
+    "documents",
+    "invoices",
+    "accounts-payable",
+    "api-client",
+    "cli",
+    "finops",
+    "finopsbricks"
+  ],
+  "license": "Apache-2.0",
+  "publishConfig": {
+    "access": "public"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/finopsbricks/fob-documents.git"
+  },
+  "homepage": "https://github.com/finopsbricks/fob-documents#readme",
+  "bugs": "https://github.com/finopsbricks/fob-documents/issues",
+  "dependencies": {
+    "@inquirer/prompts": "^7.10.1",
+    "commander": "^15.0.0",
+    "js-yaml": "^4.1.0"
+  },
+  "devDependencies": {
+    "@jest/globals": "^29.7.0",
+    "@types/node": "^22.20.1",
+    "jest": "^29.7.0",
+    "typescript": "^5.8.3"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  }
+}
